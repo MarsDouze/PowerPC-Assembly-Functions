@@ -88,6 +88,7 @@ int JUMPSQUAT_OVERRIDE_TOGGLE_INDEX = -1;
 int JUMPSQUAT_OVERRIDE_FRAMES_INDEX = -1;
 int JUMPSQUAT_OVERRIDE_MIN_INDEX = -1;
 int JUMPSQUAT_OVERRIDE_MAX_INDEX = -1;
+int STAGELIST_INDEX = -1;
 int EXTERNAL_INDEX = -1;	//Used for GCTRM codes that use other indexs for context
 int TOGGLE_BASE_LINE_INDEX = -1;
 
@@ -1180,6 +1181,12 @@ void CodeMenu()
 	
 	MainLines.push_back(&DebugMode.CalledFromLine);
 	//	MainLines.push_back(new Selection("Endless Friendlies", { "OFF", "Same Stage", "Random Stage", "Round Robin" }, 0, INFINITE_FRIENDLIES_INDEX));
+#if DOLPHIN_BUILD
+	MainLines.push_back(new Selection("Stagelist", { "2023 Singles", "2023 Doubles", "Middle 3" }, 0, STAGELIST_INDEX));
+#else
+	MainLines.push_back(new Selection("Stagelist", { "2023 Singles", "2023 Doubles", "Middle 3" }, 0, STAGELIST_INDEX));
+#endif
+	constantOverrides.emplace_back(0x80523400, STAGELIST_INDEX);
 	MainLines.push_back(new Selection("Endless Friendlies Mode", { "OFF", "All Stay", "Winner Stays", "Loser Stays", "Rotation"}, 0, ENDLESS_FRIENDLIES_MODE_INDEX));
 	MainLines.push_back(new Selection("Endless Friendlies Stage Selection", { "Random", "Same" }, 0, ENDLESS_FRIENDLIES_STAGE_SELECTION_INDEX));
 #if TOURNAMENT_ADDITION_BUILD
@@ -1190,7 +1197,7 @@ void CodeMenu()
 #if DOLPHIN_BUILD
 	MainLines.push_back(new Toggle("Autosave Replays", true, AUTO_SAVE_REPLAY_INDEX));
 #else
-	MainLines.push_back(new Toggle("Autosave Replays", false, AUTO_SAVE_REPLAY_INDEX));
+	MainLines.push_back(new Toggle("Autosave Replays", true, AUTO_SAVE_REPLAY_INDEX));
 #endif
 	MainLines.push_back(new Toggle("Save Previous Replay", false, SAVE_REPLAY_ANYWHERE_INDEX));
 	MainLines.push_back(new Selection("Tag-Based Costumes", { "ON", "ON + Teams", "OFF" }, 0, TAG_COSTUME_TOGGLE_INDEX));
@@ -1710,6 +1717,8 @@ void CreateMenu(Page MainPage)
 	AddValueToByteArray(DISABLE_DPAD_P2_INDEX, Header); //P2
 	AddValueToByteArray(DISABLE_DPAD_P3_INDEX, Header); //P3
 	AddValueToByteArray(DISABLE_DPAD_P4_INDEX, Header); //P4
+	//Stagelist Looter
+	AddValueToByteArray(STAGELIST_INDEX, Header);
 	//Endless Rotation player queue
 	AddValueToByteArray(0, Header);
 	AddValueToByteArray(0, Header);
