@@ -1717,8 +1717,6 @@ void CreateMenu(Page MainPage)
 	AddValueToByteArray(DISABLE_DPAD_P2_INDEX, Header); //P2
 	AddValueToByteArray(DISABLE_DPAD_P3_INDEX, Header); //P3
 	AddValueToByteArray(DISABLE_DPAD_P4_INDEX, Header); //P4
-	//Stagelist Looter
-	AddValueToByteArray(STAGELIST_INDEX, Header);
 	//Endless Rotation player queue
 	AddValueToByteArray(0, Header);
 	AddValueToByteArray(0, Header);
@@ -1840,6 +1838,9 @@ void CreateMenu(Page MainPage)
 	AddValueToByteArray(JUMPSQUAT_OVERRIDE_FRAMES_INDEX, Header);
 	AddValueToByteArray(JUMPSQUAT_OVERRIDE_MIN_INDEX, Header);
 	AddValueToByteArray(JUMPSQUAT_OVERRIDE_MAX_INDEX, Header);
+
+	//Stagelist Looter
+	AddValueToByteArray(STAGELIST_INDEX, Header);
 	
 	//draw settings buffer
 	vector<u32> DSB(0x200 / 4, 0);
