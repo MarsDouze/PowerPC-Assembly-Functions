@@ -300,10 +300,10 @@ namespace pscc
 		const std::string ingameSuffStr = "_ig";
 		const std::string secSuffStr = "_2";
 
-		const std::string SchemeNameP1 = "P1";
-		const std::string SchemeNameP2 = "P2";
-		const std::string SchemeNameP3 = "P3";
-		const std::string SchemeNameP4 = "P4";
+		const std::string SchemeNameP1 = "Red";
+		const std::string SchemeNameP2 = "Blue";
+		const std::string SchemeNameP3 = "Yellow";
+		const std::string SchemeNameP4 = "Green";
 		const std::string SchemeNameRGB = "RGB";
 
 		const std::string ColNameP1_M = predefStr + SchemeNameP1 + menuSuffStr;
