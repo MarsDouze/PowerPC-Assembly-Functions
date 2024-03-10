@@ -1211,9 +1211,9 @@ void CodeMenu()
 	MainLines.push_back(&DebugMode.CalledFromLine);
 	//	MainLines.push_back(new Selection("Endless Friendlies", { "OFF", "Same Stage", "Random Stage", "Round Robin" }, 0, INFINITE_FRIENDLIES_INDEX));
 #if DOLPHIN_BUILD
-	MainLines.push_back(new Selection("Stagelist", { "2023 Singles", "2023 Doubles", "Middle 3" }, 0, STAGELIST_INDEX));
+	MainLines.push_back(new Selection("Stagelist", { "PMBR", "2023", "ONPM" }, 0, STAGELIST_INDEX));
 #else
-	MainLines.push_back(new Selection("Stagelist", { "2023 Singles", "2023 Doubles", "Middle 3" }, 0, STAGELIST_INDEX));
+	MainLines.push_back(new Selection("Stagelist", { "PMBR", "2023", "ONPM" }, 0, STAGELIST_INDEX));
 #endif
 	constantOverrides.emplace_back(0x80523400, STAGELIST_INDEX);
 	MainLines.push_back(new Selection("Endless Friendlies Mode", { "OFF", "All Stay", "Winner Stays", "Loser Stays", "Rotation"}, 0, ENDLESS_FRIENDLIES_MODE_INDEX));
@@ -1226,7 +1226,7 @@ void CodeMenu()
 #if DOLPHIN_BUILD
 	MainLines.push_back(new Toggle("Autosave Replays", true, AUTO_SAVE_REPLAY_INDEX));
 #else
-	MainLines.push_back(new Toggle("Autosave Replays", true, AUTO_SAVE_REPLAY_INDEX));
+	MainLines.push_back(new Toggle("Autosave Replays", false, AUTO_SAVE_REPLAY_INDEX));
 #endif
 	MainLines.push_back(new Toggle("Save Previous Replay", false, SAVE_REPLAY_ANYWHERE_INDEX));
 	MainLines.push_back(new Selection("Tag-Based Costumes", { "ON", "ON + Teams", "OFF" }, 0, TAG_COSTUME_TOGGLE_INDEX));
